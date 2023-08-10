@@ -8,7 +8,7 @@ interface materialSet {
   mod: number;
 }
 
-class mod {
+export default class mod {
   op: "+" | "-" | "*";
   num1: number;
   num2: number;
