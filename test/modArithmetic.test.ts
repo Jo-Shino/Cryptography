@@ -1,11 +1,16 @@
 import modClass from "../mod/modArithmetic";
-// const chai = require("chai");
-import chai from "chai";
+import chai, { expect } from "chai";
 
-const assert = chai.assert;
-const assert1 = require("assert");
-let should = chai.should();
+describe("modClass", () => {
+  it("should perform mod arithmetic correctly", () => {
+    const modInstance = new modClass({ op: "+", num1: 5, num2: 3, mod: 7 });
 
-describe("modClass", function () {
-  it("");
+    expect(modInstance.modCalculator()).to.equal(1); // 5 + 3 = 8, 8 % 7 = 1
+  });
+
+  it("should handle negative results correctly", () => {
+    const modInstance = new modClass({ op: "-", num1: 2, num2: 5, mod: 7 });
+
+    expect(modInstance.modCalculator()).to.equal(4); // 2 - 5 = -3, (-3 + 7) % 7 = 4
+  });
 });

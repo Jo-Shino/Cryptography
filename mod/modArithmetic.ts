@@ -1,5 +1,5 @@
 /*
-  modの演算を行うclassです
+  Class that performs mod operations.
 */
 interface materialSet {
   op: "+" | "-" | "*";
@@ -8,7 +8,7 @@ interface materialSet {
   mod: number;
 }
 
-export default class mod {
+export default class modClass {
   op: "+" | "-" | "*";
   num1: number;
   num2: number;
@@ -21,24 +21,24 @@ export default class mod {
     this.mod = mod;
   }
 
-  modCalculator({ op, num1, num2, mod }: materialSet): number {
+  modCalculator(): number {
     let sum: number;
     let reminder: number;
-    switch (op) {
+    switch (this.op) {
       case "+":
-        sum = num1 + num2;
+        sum = this.num1 + this.num2;
         break;
       case "-":
-        sum = num1 - num2;
+        sum = this.num1 - this.num2;
         break;
       case "*":
-        sum = num1 * num2;
+        sum = this.num1 * this.num2;
         break;
       default:
         throw new Error("Invalid op");
     }
-    reminder = sum % mod;
-    if (reminder < 0) reminder = reminder + mod;
+    reminder = sum % this.mod;
+    if (reminder < 0) reminder = reminder + this.mod;
     return reminder;
   }
 }
